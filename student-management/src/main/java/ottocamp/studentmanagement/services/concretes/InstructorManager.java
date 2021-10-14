@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ottocamp.studentmanagement.dtos.InstructorDao;
+import ottocamp.studentmanagement.daos.InstructorDao;
 import ottocamp.studentmanagement.models.Instructor;
 import ottocamp.studentmanagement.services.abstracts.InstructorService;
 import ottocamp.studentmanagement.utils.DataResult;

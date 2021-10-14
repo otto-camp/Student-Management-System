@@ -1,4 +1,4 @@
-package ottocamp.studentmanagement.dtos.exam;
+package ottocamp.studentmanagement.daos.exam;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

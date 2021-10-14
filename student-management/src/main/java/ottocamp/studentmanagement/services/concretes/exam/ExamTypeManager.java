@@ -3,7 +3,7 @@ package ottocamp.studentmanagement.services.concretes.exam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ottocamp.studentmanagement.dtos.exam.ExamTypeDao;
+import ottocamp.studentmanagement.daos.exam.ExamTypeDao;
 import ottocamp.studentmanagement.models.exam.ExamType;
 import ottocamp.studentmanagement.services.abstracts.exam.ExamTypeService;
 import ottocamp.studentmanagement.utils.Result;

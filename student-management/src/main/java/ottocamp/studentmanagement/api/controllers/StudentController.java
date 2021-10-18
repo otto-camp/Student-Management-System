@@ -75,11 +75,11 @@ public class StudentController {
 		return this.studentService.updatePhotoUrl(id, photoUrl);
 	}
 
-	@PostMapping("update-birth-date")
+	@PostMapping("update-birth-date size")
 	public Result updateBirthDate(int id, Date birthDate) {
 		return this.studentService.updateBirthDate(id, birthDate);
 	}
-	
+
 	@GetMapping("getall")
 	public DataResult<List<Student>> getAll() {
 		return this.studentService.getAll();

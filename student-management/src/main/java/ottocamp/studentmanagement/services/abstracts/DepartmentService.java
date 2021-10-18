@@ -9,7 +9,9 @@ import ottocamp.studentmanagement.utils.Result;
 public interface DepartmentService {
 	Result add(Department department);
 
-	Result delete(Department department);
+	Result delete(int id);
+	
+	Result update(int id, String name);
 
 	DataResult<List<Department>> getAll();
 }

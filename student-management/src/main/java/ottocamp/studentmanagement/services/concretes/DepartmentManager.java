@@ -31,13 +31,23 @@ public class DepartmentManager implements DepartmentService {
 	}
 
 	@Override
-	public Result delete(Department department) {
+	public Result delete(int id) {
+		Department department = new Department();
+		department.setId(id);
 		this.departmentDao.delete(department);
 		return new SuccessResult("Department deleted!");
 	}
 
 	@Override
+	public Result update(int id, String name) {
+		this.departmentDao.updateName(id, name);
+		return new SuccessResult("Department updated!");
+	}
+	
+	@Override
 	public DataResult<List<Department>> getAll() {
 		return new SuccessDataResult<List<Department>>(departmentDao.findAll(), "Departments listed!");
 	}
+
+	
 }

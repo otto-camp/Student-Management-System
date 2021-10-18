@@ -1,13 +1,13 @@
 package ottocamp.studentmanagement.services.abstracts.exam;
 
-import ottocamp.studentmanagement.models.exam.ExamResult;
+import ottocamp.studentmanagement.models.dtos.ExamResultAddDto;
 import ottocamp.studentmanagement.utils.Result;
 
 public interface ExamResultService {
 
-	Result add(ExamResult examResult);
+	Result add(ExamResultAddDto examResultAddDto);
 
-	Result delete(ExamResult examResult);
+	Result delete(int id);
 
-	Result update(int id, ExamResult examResult);
+	Result update(int id, String grade);
 }

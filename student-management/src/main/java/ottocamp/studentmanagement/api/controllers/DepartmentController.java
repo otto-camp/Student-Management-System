@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ottocamp.studentmanagement.models.Department;
@@ -35,8 +36,13 @@ public class DepartmentController {
 	}
 
 	@DeleteMapping("delete")
-	public Result delete(@RequestBody Department department) {
-		return this.departmentService.delete(department);
+	public Result delete(@RequestParam int id) {
+		return this.departmentService.delete(id);
+	}
+	
+	@PostMapping("update")
+	public Result update(int id, String name) {
+		return this.departmentService.update(id, name);
 	}
 
 	@GetMapping("getall")

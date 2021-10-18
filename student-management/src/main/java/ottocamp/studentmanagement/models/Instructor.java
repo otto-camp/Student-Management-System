@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -33,8 +31,7 @@ public class Instructor extends User {
 
 	@Column(name = "department_id")
 	private int departmentId;
-	
+
 	@OneToMany(mappedBy = "instructor")
-	@JsonIgnore
 	private List<ExamResult> examResult;
 }

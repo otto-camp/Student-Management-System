@@ -1,4 +1,4 @@
-package ottocamp.studentmanagement.models;
+package ottocamp.studentmanagement.models.course;
 
 import java.util.List;
 
@@ -14,32 +14,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import ottocamp.studentmanagement.models.course.Curriculum;
-import ottocamp.studentmanagement.models.exam.ExamResult;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "instructors")
-@EqualsAndHashCode(callSuper = false)
-public class Instructor extends User {
+@Table(name = "course_type")
+public class CourseType {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "department_id")
-	private int departmentId;
+	@Column(name = "course_type")
+	private String courseType;
 
-	@OneToMany(mappedBy = "instructor")
+	@OneToMany(mappedBy = "courseType")
 	@JsonIgnore
-	private List<ExamResult> examResult;
-	
-	@OneToMany(mappedBy = "instructor")
-	@JsonIgnore
-	private List<Curriculum> curriculums;
+	private List<Course> courses;
 }

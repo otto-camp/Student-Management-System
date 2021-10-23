@@ -1,5 +1,6 @@
 package ottocamp.studentmanagement.api.controllers;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,11 @@ public class InstructorController {
 	@PostMapping("update-photo-url")
 	public Result updatePhotoUrl(int id, String photoUrl) {
 		return this.instructorService.updatePhotoUrl(id, photoUrl);
+	}
+	
+	@PostMapping("update-birth-date")
+	public Result updateBirthDate(int id, Date birthDate) {
+		return this.instructorService.updateBirthDate(id, birthDate);
 	}
 
 	@GetMapping("getall")

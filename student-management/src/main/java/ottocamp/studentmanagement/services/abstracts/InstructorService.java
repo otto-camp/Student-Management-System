@@ -1,5 +1,6 @@
 package ottocamp.studentmanagement.services.abstracts;
 
+import java.sql.Date;
 import java.util.List;
 
 import ottocamp.studentmanagement.models.Instructor;
@@ -23,6 +24,10 @@ public interface InstructorService {
 	Result updatePhoneNumber(int id, String phoneNumber);
 
 	Result updatePhotoUrl(int id, String photoUrl);
+	
+	Result updateAddress(int id, String address);
+	
+	Result updateBirthDate(int id, Date birthDate);
 
 	DataResult<List<Instructor>> getAll();
 }

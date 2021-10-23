@@ -1,5 +1,6 @@
 package ottocamp.studentmanagement.services.concretes;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,6 @@ public class InstructorManager implements InstructorService {
 		return new SuccessResult("Instructor deleted!");
 	}
 
-	
 	@Override
 	public Result updateName(int id, String name) {
 		this.userDao.updateName(id, name);
@@ -89,8 +89,19 @@ public class InstructorManager implements InstructorService {
 	}
 
 	@Override
+	public Result updateAddress(int id, String address) {
+		this.userDao.updateAddress(id, address);
+		return new SuccessResult("Address updated!");
+	}
+
+	@Override
+	public Result updateBirthDate(int id, Date birthDate) {
+		this.userDao.updateBirthDate(id, birthDate);
+		return new SuccessResult("Birth date updated!");
+	}
+
+	@Override
 	public DataResult<List<Instructor>> getAll() {
 		return new SuccessDataResult<List<Instructor>>(instructorDao.findAll(), "Instructors listed!");
 	}
-
 }

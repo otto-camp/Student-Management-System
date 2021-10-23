@@ -91,8 +91,14 @@ public class StudentManager implements StudentService {
 
 	@Override
 	public Result updateBirthDate(int id, Date birthDate) {
-		this.studentDao.updateBirthDate(id, birthDate);
+		this.userDao.updateBirthDate(id, birthDate);
 		return new SuccessResult("Birth date updated!");
+	}
+
+	@Override
+	public Result updateAddress(int id, String address) {
+		this.userDao.updateAddress(id, address);
+		return new SuccessResult("Address updated!");
 	}
 
 	@Override

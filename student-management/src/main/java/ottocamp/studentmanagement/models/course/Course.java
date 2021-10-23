@@ -1,4 +1,4 @@
-package ottocamp.studentmanagement.models;
+ package ottocamp.studentmanagement.models.course;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -14,32 +16,34 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import ottocamp.studentmanagement.models.course.Curriculum;
-import ottocamp.studentmanagement.models.exam.ExamResult;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "instructors")
-@EqualsAndHashCode(callSuper = false)
-public class Instructor extends User {
+@Table(name = "courses")
+public class Course {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "department_id")
-	private int departmentId;
+	@Column(name = "course_name")
+	private String courseName;
 
-	@OneToMany(mappedBy = "instructor")
-	@JsonIgnore
-	private List<ExamResult> examResult;
+	@Column(name = "course_id")
+	private String courseId;
+
+	@Column(name = "course_desc")
+	private String courseDesc;
+
+	@ManyToOne()
+	@JoinColumn(name = "course_type_id")
+	private CourseType courseType;
 	
-	@OneToMany(mappedBy = "instructor")
+	@OneToMany(mappedBy = "course")
 	@JsonIgnore
 	private List<Curriculum> curriculums;
 }

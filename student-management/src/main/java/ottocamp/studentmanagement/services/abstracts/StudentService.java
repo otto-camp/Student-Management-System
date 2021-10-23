@@ -26,6 +26,8 @@ public interface StudentService {
 	Result updatePhotoUrl(int id, String photoUrl);
 
 	Result updateBirthDate(int id, Date birthDate);
+	
+	Result updateAddress(int id, String address);
 
 	DataResult<List<Student>> getAll();
 }

@@ -1,6 +1,5 @@
 package ottocamp.studentmanagement.models;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -15,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import ottocamp.studentmanagement.models.course.Curriculum;
 import ottocamp.studentmanagement.models.exam.ExamResult;
 
 @Data
@@ -24,18 +24,19 @@ import ottocamp.studentmanagement.models.exam.ExamResult;
 @Table(name = "students")
 @EqualsAndHashCode(callSuper = false)
 //@PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "id")
-public class Student extends User{
-	
+public class Student extends User {
+
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "student_id")
 	private String studentId;
-	
-	@Column(name = "birth_date")
-	private Date birthDate;
-	
+
 	@OneToMany(mappedBy = "student")
 	@JsonIgnore
 	private List<ExamResult> examResult;
+	
+	@OneToMany(mappedBy = "student")
+	@JsonIgnore
+	private List<Curriculum> curriculums;
 }

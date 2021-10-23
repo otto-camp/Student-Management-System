@@ -1,4 +1,4 @@
-package ottocamp.studentmanagement.api.controllers.exam;
+package ottocamp.studentmanagement.api.controllers.course;
 
 import java.util.List;
 
@@ -11,41 +11,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ottocamp.studentmanagement.models.exam.Exam;
-import ottocamp.studentmanagement.services.abstracts.exam.ExamService;
+import ottocamp.studentmanagement.models.course.Curriculum;
+import ottocamp.studentmanagement.models.dtos.CurriculumAddDto;
+import ottocamp.studentmanagement.services.abstracts.course.CurriculumService;
 import ottocamp.studentmanagement.utils.DataResult;
 import ottocamp.studentmanagement.utils.Result;
 
 @RestController
-@RequestMapping("/api/exam")
+@RequestMapping("/api/curriculum/")
 @CrossOrigin
-public class ExamController {
+public class CurriculumController {
 
-	private ExamService examService;
+	private CurriculumService curriculumService;
 
 	@Autowired
-	public ExamController(ExamService examService) {
+	public CurriculumController(CurriculumService curriculumService) {
 		super();
-		this.examService = examService;
+		this.curriculumService = curriculumService;
 	}
 
 	@PostMapping("add")
-	public Result add(@RequestBody Exam exam) {
-		return this.examService.add(exam);
+	public Result add(@RequestBody CurriculumAddDto curriculumAddDto) {
+		return this.curriculumService.add(curriculumAddDto);
 	}
 
 	@DeleteMapping("delete")
 	public Result delete(int id) {
-		return this.examService.delete(id);
-	}
-	
-	@PostMapping("update-name")
-	public Result updateName(int id, String name) {
-		return this.examService.updateName(id, name);
+		return this.curriculumService.delete(id);
 	}
 	
 	@GetMapping("getall")
-	public DataResult<List<Exam>> getAll(){
-		return this.examService.getAll();
+	public DataResult<List<Curriculum>> getAll(){
+		return this.curriculumService.getAll();
 	}
 }

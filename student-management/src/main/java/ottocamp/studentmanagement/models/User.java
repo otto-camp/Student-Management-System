@@ -1,5 +1,7 @@
 package ottocamp.studentmanagement.models;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,4 +44,14 @@ public class User {
 
 	@Column(name = "photo_url")
 	private String photoUrl;
+
+	@Column(name = "address")
+	private String address;
+
+	@Column(name = "gender")
+	private char gender;
+
+	@Column(name = "birth_date")
+	private Date birthDate;
+
 }

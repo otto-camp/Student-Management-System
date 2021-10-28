@@ -59,7 +59,26 @@ public class CurriculumManager implements CurriculumService {
 	}
 
 	@Override
+	public Result updateClassroom(int id, String classroom) {
+		this.curriculumDao.updateClassroom(id, classroom);
+		return new SuccessResult("Classroom updated!");
+	}
+
+	@Override
+	public Result updateStartTime(int id, String startTime) {
+		this.curriculumDao.updateStartTime(id, startTime);
+		return new SuccessResult("Start time updated!");
+	}
+
+	@Override
+	public Result updateEndTime(int id, String endTime) {
+		this.curriculumDao.updateEndTime(id, endTime);
+		return new SuccessResult("End time updated!");
+	}
+
+	@Override
 	public DataResult<List<Curriculum>> getAll() {
 		return new SuccessDataResult<List<Curriculum>>(this.curriculumDao.findAll(), "Curriculum listed!");
 	}
+
 }

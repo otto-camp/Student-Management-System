@@ -13,5 +13,11 @@ public interface CurriculumService {
 	
 	Result delete(int id);
 	
+	Result updateClassroom(int id, String classroom);
+	
+	Result updateStartTime(int id, String startTime);
+	
+	Result updateEndTime(int id, String endTime);
+	
 	DataResult<List<Curriculum>> getAll();
 }

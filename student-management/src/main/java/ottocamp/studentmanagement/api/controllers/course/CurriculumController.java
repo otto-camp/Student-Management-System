@@ -40,6 +40,21 @@ public class CurriculumController {
 		return this.curriculumService.delete(id);
 	}
 	
+	@PostMapping("update-classroom")
+	public Result updateClassroom(int id, String classroom) {
+		return this.curriculumService.updateClassroom(id, classroom);
+	}
+	
+	@PostMapping("update-start-time")
+	public Result updateStartTime(int id, String startTime) {
+		return this.curriculumService.updateStartTime(id, startTime);
+	}
+	
+	@PostMapping("update-end-time")
+	public Result updateEndTime(int id, String endTime) {
+		return this.curriculumService.updateEndTime(id, endTime);
+	}
+	
 	@GetMapping("getall")
 	public DataResult<List<Curriculum>> getAll(){
 		return this.curriculumService.getAll();
